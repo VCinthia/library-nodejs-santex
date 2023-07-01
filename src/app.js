@@ -1,5 +1,5 @@
 const express = require('express');
-const { userRouter, authRouter, /*bookRouter,*/ libraryRouter} = require('./routes');
+const { userRouter, authRouter, bookRouter, libraryRouter} = require('./routes');
 const loggingMdw = require('./middleware/logging');
 const { initializeDB } = require('./config/dbConfig');
 
@@ -13,7 +13,7 @@ app.use(loggingMdw);
 
 app.use('/user', userRouter);
 app.use('/login', authRouter);
-//app.use('/book', bookRouter);
+app.use('/book', bookRouter);
 app.use('/library', libraryRouter);
 
 // app.get('/user', (req, res, next) => {

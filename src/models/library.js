@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../config/dbConfig');
 
-//const Book = require('./book');//cuando esté para hacer la conexion
+const Book = require('./book');//cuando esté para hacer la conexion
 
 const Library = sequelize.define('Libraries', {
     id: {
@@ -25,7 +25,7 @@ const Library = sequelize.define('Libraries', {
     },
 });
 
-// Library.hasMany(Book);
-// Book.belongsTo(Library);
+Library.hasMany(Book);
+Book.belongsTo(Library);
 
 module.exports = Library;

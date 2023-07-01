@@ -12,16 +12,7 @@ const createLibrary = async (library) => {
     }
 };
 
-//TODO: esta funcion va a servir en book para crear libros de una libreria
-// const createTicket = async (userId, ticket) => {
-//     try {
-//         const newTicket = await Ticket.create({ ...ticket, UserId: userId });
-//         return newTicket;
-//     } catch (err) {
-//         console.error('~ Error when creating User: ', err);
-//         throw err;
-//     }
-// };
+
 
 const getLibraries = async () => {
     try {

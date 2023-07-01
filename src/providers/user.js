@@ -12,16 +12,6 @@ const createUser = async (user) => {
     }
 };
 
-const createTicket = async (userId, ticket) => {
-    try {
-        const newTicket = await Ticket.create({ ...ticket, UserId: userId });
-        return newTicket;
-    } catch (err) {
-        console.error('~ Error when creating User: ', err);
-        throw err;
-    }
-};
-
 const getUser = async (userId) => {
     try {
         const user = await User.findByPk(userId, { include: { all: true } });//ver que no anda con el include all
@@ -49,6 +39,10 @@ const getUserByCriteria = async (options) => {
     }
 };
 
+const editUser = async (userId, body) => {
+
+};
+
 const validateUser = async (options) => {
     try {
         const user = await User.findAll({
@@ -71,8 +65,15 @@ const validateUser = async (options) => {
     }
 };
 
-const putUser = async (userId, body) => {
-
+const createTicket = async (userId, ticket) => {
+    try {
+        const newTicket = await Ticket.create({ ...ticket, UserId: userId });
+        return newTicket;
+    } catch (err) {
+        console.error('~ Error when creating User: ', err);
+        throw err;
+    }
 };
 
-module.exports = { createUser, getUser, putUser, createUser, createTicket, getUserByCriteria, validateUser };
+
+module.exports = { createUser, getUser, getUserByCriteria, editUser,  validateUser, createTicket };
